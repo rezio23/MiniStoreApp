@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ecommerce Store</string>
+
+    <!-- Navigation Titles -->
+    <string name="nav_home">Home</string>
+    <string name="nav_category">Category</string>
+    <string name="nav_stores">Stores</string>
+    <string name="nav_cart">Cart</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Drawer Categories -->
+    <string name="category_men">Men</string>
+    <string name="category_women">Women</string>
+    <string name="category_kids">Kids</string>
+    <string name="category_sports">Sports</string>
+    <string name="category_perfume">Perfume</string>
+    <string name="category_accessories">Accessories</string>
+
+    <!-- Content Labels -->
+    <string name="logo_text">E-STORE</string>
+    <string name="welcome_text">Welcome to Our Store</string>
+    <string name="featured_products">Featured Products</string>
+    <string name="new_arrivals">New Arrivals</string>
+    <string name="see_all">See All</string>
+    <string name="search_hint">Search products...</string>
+    <string name="open_drawer">Open Menu</string>
+    <string name="close_drawer">Close Menu</string>
+
+    <!-- Profile -->
+    <string name="profile_fullname">John Doe</string>
+    <string name="profile_email">john.doe@example.com</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="my_cart">My Cart</string>
+    <string name="my_orders">My Orders</string>
+    <string name="my_wishlist">My Wishlist</string>
+    <string name="btn_cart">Cart</string>
+    <string name="btn_orders">Orders</string>
+    <string name="btn_wishlist">Wishlist</string>
+    <string name="store_title">Store</string>
+    <string name="all_categories">All</string>
+    <string name="no_products_found">No products found</string>
+</resources>

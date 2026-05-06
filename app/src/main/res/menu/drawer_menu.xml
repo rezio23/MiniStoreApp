@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_men"
+            android:icon="@drawable/ic_men"
+            android:title="@string/category_men"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_women"
+            android:icon="@drawable/ic_women"
+            android:title="@string/category_women"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_kids"
+            android:icon="@drawable/ic_kids"
+            android:title="@string/category_kids"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_sports"
+            android:icon="@drawable/ic_sports"
+            android:title="@string/category_sports"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_perfume"
+            android:icon="@drawable/ic_perfume"
+            android:title="@string/category_perfume"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_accessories"
+            android:icon="@drawable/ic_accessories"
+            android:title="@string/category_accessories"
+            app:showAsAction="never" />
+    </group>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/menu_orders"
+                android:icon="@drawable/ic_orders"
+                android:title="My Orders" />
+            <item
+                android:id="@+id/menu_wishlist"
+                android:icon="@drawable/ic_wishlist"
+                android:title="Wishlist" />
+            <item
+                android:id="@+id/menu_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings" />
+        </menu>
+    </item>
+</menu>
