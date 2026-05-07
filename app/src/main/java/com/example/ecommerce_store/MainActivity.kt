@@ -3,6 +3,7 @@ package com.example.ecommerce_store
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -25,7 +26,15 @@ class MainActivity : AppCompatActivity() {
         initViews()
         setupDrawerNavigation()
         setupBottomNavigation()
+        setupClickListeners()
         setupRecyclerViews()
+        updateCartBadge()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateCartBadge()
+        bottomNavigation.selectedItemId = R.id.nav_home
     }
 
     private fun initViews() {
@@ -43,33 +52,15 @@ class MainActivity : AppCompatActivity() {
     private fun setupDrawerNavigation() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.menu_men -> {
-                    showToast("Selected: Men")
-                }
-                R.id.menu_women -> {
-                    showToast("Selected: Women")
-                }
-                R.id.menu_kids -> {
-                    showToast("Selected: Kids")
-                }
-                R.id.menu_sports -> {
-                    showToast("Selected: Sports")
-                }
-                R.id.menu_perfume -> {
-                    showToast("Selected: Perfume")
-                }
-                R.id.menu_accessories -> {
-                    showToast("Selected: Accessories")
-                }
-                R.id.menu_orders -> {
-                    showToast("My Orders")
-                }
-                R.id.menu_wishlist -> {
-                    showToast("Wishlist")
-                }
-                R.id.menu_settings -> {
-                    showToast("Settings")
-                }
+                R.id.menu_men -> openStore("Men")
+                R.id.menu_women -> openStore("Women")
+                R.id.menu_kids -> openStore("Kids")
+                R.id.menu_sports -> openStore("Sports")
+                R.id.menu_perfume -> openStore("Perfume")
+                R.id.menu_accessories -> openStore("Accessories")
+                R.id.menu_orders -> startActivity(Intent(this, OrdersActivity::class.java))
+                R.id.menu_wishlist -> startActivity(Intent(this, WishlistActivity::class.java))
+                R.id.menu_settings -> startActivity(Intent(this, SettingsActivity::class.java))
             }
             drawerLayout.close()
             true
@@ -87,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_cart -> {
-                    showToast("Cart")
+                    startActivity(Intent(this, CartActivity::class.java))
                     true
                 }
                 R.id.nav_profile -> {
@@ -102,6 +93,21 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.selectedItemId = R.id.nav_home
     }
 
+    private fun setupClickListeners() {
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.searchCard)?.setOnClickListener {
+            openStore()
+        }
+        findViewById<TextView>(R.id.tvSeeAllFeatured)?.setOnClickListener {
+            openStore()
+        }
+        findViewById<TextView>(R.id.tvSeeAllNew)?.setOnClickListener {
+            openStore()
+        }
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnShopNow)?.setOnClickListener {
+            openStore()
+        }
+    }
+
     private fun setupRecyclerViews() {
         // Featured Products
         val rvFeatured = findViewById<RecyclerView>(R.id.rvFeatured)
@@ -114,6 +120,12 @@ class MainActivity : AppCompatActivity() {
         rvNewArrivals.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvNewArrivals.adapter = ProductAdapter(getNewArrivals())
+    }
+
+    private fun openStore(category: String? = null) {
+        val intent = Intent(this, StoreActivity::class.java)
+        category?.let { intent.putExtra("category", it) }
+        startActivity(intent)
     }
 
     private fun getFeaturedProducts(): List<Product> {
@@ -136,10 +148,22 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    private fun updateCartBadge() {
+        val badge = bottomNavigation.getOrCreateBadge(R.id.nav_cart)
+        val count = CartManager.getInstance(this).getCartCount()
+        if (count > 0) {
+            badge.isVisible = true
+            badge.number = count
+        } else {
+            badge.isVisible = false
+        }
+    }
+
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (drawerLayout.isOpen) {
             drawerLayout.close()

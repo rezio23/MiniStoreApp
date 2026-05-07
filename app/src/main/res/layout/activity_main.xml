@@ -5,20 +5,22 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
     <!-- Main Content -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
         <!-- Custom Header / Toolbar -->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="4dp"
-            app:elevation="4dp">
+            android:elevation="0dp"
+            app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -29,7 +31,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingHorizontal="8dp">
+                    android:paddingHorizontal="16dp">
 
                     <ImageButton
                         android:id="@+id/btnMenu"
@@ -71,17 +73,17 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <!-- Welcome Banner Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/welcomeCard"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="8dp"
                     app:cardBackgroundColor="@color/primary"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -89,16 +91,17 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="20dp">
+                        android:padding="24dp">
 
                         <TextView
                             android:id="@+id/tvWelcomeTitle"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
+                            android:lineSpacingMultiplier="1.1"
                             android:text="@string/welcome_text"
                             android:textColor="@color/white"
-                            android:textSize="24sp"
+                            android:textSize="26sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -109,6 +112,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:alpha="0.85"
                             android:text="Discover the best products at unbeatable prices"
                             android:textColor="@color/white"
                             android:textSize="14sp"
@@ -119,13 +123,15 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnShopNow"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="44dp"
                             android:layout_marginTop="16dp"
-                            android:backgroundTint="@color/accent"
+                            android:backgroundTint="@color/white"
+                            android:paddingHorizontal="20dp"
                             android:text="Shop Now"
                             android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            app:cornerRadius="20dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            app:cornerRadius="22dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvWelcomeSub" />
 
@@ -136,9 +142,9 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/searchCard"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="16dp"
-                    app:cardCornerRadius="12dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -147,12 +153,13 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingHorizontal="12dp">
+                        android:background="@drawable/bg_search"
+                        android:paddingHorizontal="16dp">
 
                         <ImageView
                             android:id="@+id/icSearch"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
                             android:contentDescription="Search"
                             android:src="@drawable/ic_search"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -166,7 +173,7 @@
                             android:layout_marginStart="12dp"
                             android:hint="@string/search_hint"
                             android:textColorHint="@color/text_hint"
-                            android:textSize="14sp"
+                            android:textSize="15sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/icSearch"
@@ -175,80 +182,104 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Featured Products Section -->
-                <TextView
-                    android:id="@+id/tvFeatured"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/featuredHeader"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/featured_products"
-                    android:textColor="@color/text_primary"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/searchCard" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/see_all"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/tvFeatured"
+                    android:layout_marginTop="28dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvFeatured" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/searchCard">
+
+                    <TextView
+                        android:id="@+id/tvFeatured"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/featured_products"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSeeAllFeatured"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="4dp"
+                        android:text="@string/see_all"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/tvFeatured"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvFeatured" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvFeatured"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:clipToPadding="false"
                     android:paddingEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvFeatured"
+                    app:layout_constraintTop_toBottomOf="@id/featuredHeader"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_product_card" />
 
                 <!-- New Arrivals Section -->
-                <TextView
-                    android:id="@+id/tvNewArrivals"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/newArrivalsHeader"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/new_arrivals"
-                    android:textColor="@color/text_primary"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rvFeatured" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/see_all"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/tvNewArrivals"
+                    android:layout_marginTop="28dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvNewArrivals" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvFeatured">
+
+                    <TextView
+                        android:id="@+id/tvNewArrivals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/new_arrivals"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSeeAllNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="4dp"
+                        android:text="@string/see_all"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/tvNewArrivals"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvNewArrivals" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvNewArrivals"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:layout_marginBottom="80dp"
+                    android:layout_marginBottom="100dp"
                     android:clipToPadding="false"
                     android:paddingEnd="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNewArrivals"
+                    app:layout_constraintTop_toBottomOf="@id/newArrivalsHeader"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_product_card" />
 
@@ -263,7 +294,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@color/surface"
-            android:elevation="8dp"
+            android:elevation="12dp"
             app:itemActiveIndicatorStyle="@style/BottomNavIndicator"
             app:itemIconTint="@color/bottom_nav_selector"
             app:itemTextColor="@color/bottom_nav_selector"
@@ -274,7 +305,7 @@
     <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
-        android:layout_width="280dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/surface"

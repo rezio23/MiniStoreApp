@@ -40,4 +40,16 @@
     <string name="store_title">Store</string>
     <string name="all_categories">All</string>
     <string name="no_products_found">No products found</string>
+
+    <!-- Cart -->
+    <string name="checkout">Checkout</string>
+    <string name="empty_cart">Your cart is empty</string>
+    <string name="empty_wishlist">Your wishlist is empty</string>
+    <string name="empty_orders">No orders yet</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_about">About</string>
+    <string name="settings_privacy">Privacy Policy</string>
+    <string name="settings_clear_data">Clear All Data</string>
 </resources>

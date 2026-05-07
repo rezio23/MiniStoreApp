@@ -1,7 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.EcommerceStore" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Night theme matches the light theme to keep the green/black/white scheme consistent -->
+    <style name="Base.Theme.EcommerceStore" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/text_on_accent</item>
+
+        <!-- Surface & Background -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Navigation Bar -->
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Typography -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
 </resources>

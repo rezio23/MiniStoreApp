@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="8dp">
+            android:paddingHorizontal="16dp">
 
             <ImageButton
                 android:id="@+id/btnBack"
@@ -51,9 +51,10 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/searchCard"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="12dp"
-        app:cardCornerRadius="12dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
         app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,12 +63,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="12dp">
+            android:background="@drawable/bg_search"
+            android:paddingHorizontal="16dp">
 
             <ImageView
                 android:id="@+id/icSearch"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:contentDescription="Search"
                 android:src="@drawable/ic_search"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -79,14 +81,14 @@
                 android:id="@+id/etSearch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="12dp"
                 android:background="@null"
                 android:hint="@string/search_hint"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_hint"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnClear"
                 app:layout_constraintStart_toEndOf="@id/icSearch"
@@ -107,144 +109,148 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
-        android:id="@+id/categoryToggle"
+    <HorizontalScrollView
+        android:id="@+id/categoryScroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="4dp"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchCard">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCategoryAll"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/primary"
-            android:paddingHorizontal="4dp"
-            android:text="@string/all_categories"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="11sp"
-            app:cornerRadius="20dp"
-            app:elevation="0dp" />
+        <LinearLayout
+            android:id="@+id/categoryToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCategoryMen"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/card_background"
-            android:paddingHorizontal="4dp"
-            android:text="@string/category_men"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            app:cornerRadius="20dp"
-            app:elevation="0dp"
-            app:strokeColor="@color/divider"
-            app:strokeWidth="1dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoryAll"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/primary"
+                android:paddingHorizontal="20dp"
+                android:text="@string/all_categories"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:cornerRadius="21dp"
+                app:elevation="0dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCategoryWomen"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/card_background"
-            android:paddingHorizontal="4dp"
-            android:text="@string/category_women"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            app:cornerRadius="20dp"
-            app:elevation="0dp"
-            app:strokeColor="@color/divider"
-            app:strokeWidth="1dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoryMen"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="20dp"
+                android:text="@string/category_men"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                app:cornerRadius="21dp"
+                app:elevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCategoryKids"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/card_background"
-            android:paddingHorizontal="4dp"
-            android:text="@string/category_kids"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            app:cornerRadius="20dp"
-            app:elevation="0dp"
-            app:strokeColor="@color/divider"
-            app:strokeWidth="1dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoryWomen"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="20dp"
+                android:text="@string/category_women"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                app:cornerRadius="21dp"
+                app:elevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCategorySports"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/card_background"
-            android:paddingHorizontal="4dp"
-            android:text="@string/category_sports"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            app:cornerRadius="20dp"
-            app:elevation="0dp"
-            app:strokeColor="@color/divider"
-            app:strokeWidth="1dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoryKids"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="20dp"
+                android:text="@string/category_kids"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                app:cornerRadius="21dp"
+                app:elevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCategoryPerfume"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/card_background"
-            android:paddingHorizontal="4dp"
-            android:text="@string/category_perfume"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            app:cornerRadius="20dp"
-            app:elevation="0dp"
-            app:strokeColor="@color/divider"
-            app:strokeWidth="1dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategorySports"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="20dp"
+                android:text="@string/category_sports"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                app:cornerRadius="21dp"
+                app:elevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCategoryAccessories"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/card_background"
-            android:paddingHorizontal="4dp"
-            android:text="@string/category_accessories"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            app:cornerRadius="20dp"
-            app:elevation="0dp"
-            app:strokeColor="@color/divider"
-            app:strokeWidth="1dp" />
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoryPerfume"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="20dp"
+                android:text="@string/category_perfume"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                app:cornerRadius="21dp"
+                app:elevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoryAccessories"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="20dp"
+                android:text="@string/category_accessories"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                app:cornerRadius="21dp"
+                app:elevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvStoreProducts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="12dp"
+        android:layout_marginTop="8dp"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="8dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categoryToggle" />
+        app:layout_constraintTop_toBottomOf="@id/categoryScroll" />
 
     <TextView
         android:id="@+id/tvNoResults"
@@ -254,8 +260,17 @@
         android:textColor="@color/text_secondary"
         android:textSize="16sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categoryToggle" />
+        app:layout_constraintTop_toBottomOf="@id/categoryScroll" />
+
+    <include
+        android:id="@+id/bottomNavigation"
+        layout="@layout/layout_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

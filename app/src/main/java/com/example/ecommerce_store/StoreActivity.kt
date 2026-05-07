@@ -37,6 +37,14 @@ class StoreActivity : AppCompatActivity() {
         setupCategoryToggles()
 
         btnBack.setOnClickListener { finish() }
+
+        intent.getStringExtra("category")?.let {
+            if (categoryButtons.containsKey(it)) {
+                selectedCategory = it
+                updateCategoryUI()
+                filterProducts()
+            }
+        }
     }
 
     private fun initViews() {
@@ -100,7 +108,7 @@ class StoreActivity : AppCompatActivity() {
                 button.setBackgroundColor(getColor(R.color.card_background))
                 button.setTextColor(getColor(R.color.text_primary))
                 button.strokeWidth = 1
-                button.strokeColor = getColorStateList(R.color.divider)
+                button.setStrokeColor(android.content.res.ColorStateList.valueOf(getColor(R.color.divider)))
             }
         }
     }

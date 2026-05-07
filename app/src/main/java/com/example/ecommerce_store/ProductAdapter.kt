@@ -28,18 +28,33 @@ class ProductAdapter(private val products: List<Product>) :
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
         holder.tvProductName.text = product.name
-        holder.tvProductPrice.text = "\$${String.format("%.2f", product.price)}"
+        holder.tvProductPrice.text = "$${String.format("%.2f", product.price)}"
 
         if (product.oldPrice != null) {
             holder.tvOldPrice.visibility = View.VISIBLE
-            holder.tvOldPrice.text = "\$${String.format("%.2f", product.oldPrice)}"
+            holder.tvOldPrice.text = "$${String.format("%.2f", product.oldPrice)}"
         } else {
             holder.tvOldPrice.visibility = View.GONE
         }
 
         holder.imgProduct.setImageResource(product.imageRes)
         holder.btnAddToCart.setOnClickListener {
-            // Handle add to cart click
+            CartManager.getInstance(holder.itemView.context).addToCart(product)
+            android.widget.Toast.makeText(
+                holder.itemView.context,
+                "${product.name} added to cart",
+                android.widget.Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        holder.itemView.setOnLongClickListener {
+            CartManager.getInstance(holder.itemView.context).toggleWishlist(product)
+            android.widget.Toast.makeText(
+                holder.itemView.context,
+                "${product.name} added to wishlist",
+                android.widget.Toast.LENGTH_SHORT
+            ).show()
+            true
         }
     }
 

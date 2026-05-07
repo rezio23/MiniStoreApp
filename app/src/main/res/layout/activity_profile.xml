@@ -7,7 +7,7 @@
     android:background="@color/background"
     tools:context=".ProfileActivity">
 
-    <!-- Top bar (matching home style) -->
+    <!-- Top bar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="8dp">
+            android:paddingHorizontal="16dp">
 
             <ImageButton
                 android:id="@+id/btnBack"
@@ -60,9 +60,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingTop="24dp"
-            android:paddingBottom="24dp">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="28dp"
+            android:paddingBottom="28dp">
 
             <!-- Profile Image -->
             <com.google.android.material.imageview.ShapeableImageView
@@ -75,7 +75,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearance="@style/CircularImage" />
+                app:shapeAppearance="@style/CircularImage"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="3dp" />
 
             <!-- Full Name -->
             <TextView
@@ -86,7 +88,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/profile_fullname"
                 android:textColor="@color/text_primary"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +99,7 @@
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
                 android:text="@string/profile_email"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
@@ -110,10 +112,9 @@
                 android:id="@+id/tvEditProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:background="?attr/selectableItemBackground"
-                android:drawableStart="@drawable/ic_edit"
-                android:drawableTint="@color/primary"
+                android:drawablePadding="6dp"
                 android:gravity="center_vertical"
                 android:padding="8dp"
                 android:text="@string/edit_profile"
@@ -123,16 +124,18 @@
                 app:drawableStartCompat="@drawable/ic_edit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+                app:layout_constraintTop_toBottomOf="@id/tvEmail"
+                app:tint="@color/primary" />
 
             <!-- Action Buttons Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/actionsCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
+                android:layout_marginTop="28dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvEditProfile">
@@ -140,89 +143,174 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp"
-                    android:weightSum="3"
+                    android:baselineAligned="false"
                     android:gravity="center"
-                    android:baselineAligned="false">
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:weightSum="3">
 
-                    <!-- Cart Button -->
                     <LinearLayout
+                        android:id="@+id/btnCart"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                        <ImageButton
-                            android:id="@+id/btnCart"
+                        <ImageView
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:background="@drawable/circle_background"
                             android:contentDescription="@string/btn_cart"
+                            android:padding="12dp"
                             android:src="@drawable/ic_cart"
                             app:tint="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="8dp"
                             android:text="@string/btn_cart"
                             android:textColor="@color/text_primary"
-                            android:textSize="12sp" />
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <!-- Orders Button -->
                     <LinearLayout
+                        android:id="@+id/btnOrders"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                        <ImageButton
-                            android:id="@+id/btnOrders"
+                        <ImageView
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:background="@drawable/circle_background"
                             android:contentDescription="@string/btn_orders"
+                            android:padding="12dp"
                             android:src="@drawable/ic_orders"
                             app:tint="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="8dp"
                             android:text="@string/btn_orders"
                             android:textColor="@color/text_primary"
-                            android:textSize="12sp" />
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <!-- Wishlist Button -->
                     <LinearLayout
+                        android:id="@+id/btnWishlist"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                        <ImageButton
-                            android:id="@+id/btnWishlist"
+                        <ImageView
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:background="@drawable/circle_background"
                             android:contentDescription="@string/btn_wishlist"
+                            android:padding="12dp"
                             android:src="@drawable/ic_wishlist"
                             app:tint="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="8dp"
                             android:text="@string/btn_wishlist"
                             android:textColor="@color/text_primary"
-                            android:textSize="12sp" />
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Account Info Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actionsCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Account Info"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="12dp"
+                        android:background="@color/divider" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:textColor="@color/text_hint"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="+1 (555) 123-4567"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="12dp"
+                        android:background="@color/divider" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address"
+                        android:textColor="@color/text_hint"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="123 Main Street, New York, NY 10001"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
