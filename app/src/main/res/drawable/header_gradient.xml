@@ -6,9 +6,4 @@
         android:endColor="@color/header_end"
         android:startColor="@color/header_start"
         android:type="linear" />
-    <corners
-        android:bottomLeftRadius="0dp"
-        android:bottomRightRadius="0dp"
-        android:topLeftRadius="0dp"
-        android:topRightRadius="0dp" />
 </shape>

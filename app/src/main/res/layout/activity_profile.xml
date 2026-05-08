@@ -7,7 +7,6 @@
     android:background="@color/background"
     tools:context=".ProfileActivity">
 
-    <!-- Top bar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -20,14 +19,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="@dimen/spacing_lg">
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Back"
+                android:contentDescription="@string/back_content_desc"
                 android:src="@drawable/ic_arrow_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,13 +34,10 @@
                 app:tint="@color/white" />
 
             <TextView
+                style="@style/ToolbarTitleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="Profile"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:text="@string/nav_profile"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +48,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -60,16 +56,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="28dp">
+            android:paddingHorizontal="@dimen/spacing_xl"
+            android:paddingTop="@dimen/spacing_2xl"
+            android:paddingBottom="@dimen/spacing_2xl">
 
-            <!-- Profile Image -->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgProfile"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:contentDescription="Profile Image"
+                android:contentDescription="@string/product_image_desc"
                 android:scaleType="centerCrop"
                 android:src="@drawable/profile_picture"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,47 +74,41 @@
                 app:strokeColor="@color/divider"
                 app:strokeWidth="3dp" />
 
-            <!-- Full Name -->
             <TextView
                 android:id="@+id/tvFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="@dimen/spacing_lg"
                 android:text="@string/profile_fullname"
-                android:textColor="@color/text_primary"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                style="@style/TextHeading1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
-            <!-- Email -->
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/spacing_xs"
                 android:text="@string/profile_email"
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_md"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvFullName" />
 
-            <!-- Edit Profile Label -->
             <TextView
                 android:id="@+id/tvEditProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/spacing_md"
                 android:background="?attr/selectableItemBackground"
-                android:drawablePadding="6dp"
+                android:drawablePadding="@dimen/spacing_xs"
                 android:gravity="center_vertical"
-                android:padding="8dp"
+                android:padding="@dimen/spacing_sm"
                 android:text="@string/edit_profile"
                 android:textColor="@color/primary"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_md"
                 android:textStyle="bold"
                 app:drawableStartCompat="@drawable/ic_edit"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,14 +116,13 @@
                 app:layout_constraintTop_toBottomOf="@id/tvEmail"
                 app:tint="@color/primary" />
 
-            <!-- Action Buttons Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/actionsCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="20dp"
+                android:layout_marginTop="@dimen/spacing_2xl"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="@dimen/radius_xl"
                 app:cardElevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +134,7 @@
                     android:baselineAligned="false"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="16dp"
+                    android:padding="@dimen/spacing_lg"
                     android:weightSum="3">
 
                     <LinearLayout
@@ -159,24 +147,24 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="@dimen/spacing_sm">
 
                         <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="@dimen/icon_xl"
+                            android:layout_height="@dimen/icon_xl"
                             android:background="@drawable/circle_background"
                             android:contentDescription="@string/btn_cart"
-                            android:padding="12dp"
+                            android:padding="@dimen/spacing_md"
                             android:src="@drawable/ic_cart"
                             app:tint="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/spacing_xs"
                             android:text="@string/btn_cart"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="@dimen/text_sm"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -190,24 +178,24 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="@dimen/spacing_sm">
 
                         <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="@dimen/icon_xl"
+                            android:layout_height="@dimen/icon_xl"
                             android:background="@drawable/circle_background"
                             android:contentDescription="@string/btn_orders"
-                            android:padding="12dp"
+                            android:padding="@dimen/spacing_md"
                             android:src="@drawable/ic_orders"
                             app:tint="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/spacing_xs"
                             android:text="@string/btn_orders"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="@dimen/text_sm"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -221,36 +209,35 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="@dimen/spacing_sm">
 
                         <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="@dimen/icon_xl"
+                            android:layout_height="@dimen/icon_xl"
                             android:background="@drawable/circle_background"
                             android:contentDescription="@string/btn_wishlist"
-                            android:padding="12dp"
+                            android:padding="@dimen/spacing_md"
                             android:src="@drawable/ic_wishlist"
                             app:tint="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/spacing_xs"
                             android:text="@string/btn_wishlist"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="@dimen/text_sm"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Account Info Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="20dp"
+                android:layout_marginTop="@dimen/spacing_lg"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="@dimen/radius_xl"
                 app:cardElevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -260,59 +247,65 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/spacing_xl">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Account Info"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:text="@string/account_info"
+                        style="@style/TextHeading2"
+                        android:textSize="@dimen/text_lg" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginVertical="12dp"
+                        android:layout_marginVertical="@dimen/spacing_md"
                         android:background="@color/divider" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Phone"
-                        android:textColor="@color/text_hint"
-                        android:textSize="12sp" />
+                        android:text="@string/phone_label"
+                        style="@style/TextCaption" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="+1 (555) 123-4567"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:text="@string/phone_placeholder"
                         android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_md" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginVertical="12dp"
+                        android:layout_marginVertical="@dimen/spacing_md"
                         android:background="@color/divider" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Address"
-                        android:textColor="@color/text_hint"
-                        android:textSize="12sp" />
+                        android:text="@string/address_label"
+                        style="@style/TextCaption" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="123 Main Street, New York, NY 10001"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:text="@string/address_placeholder"
                         android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_md" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/bottomNavigation"
+        layout="@layout/layout_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,15 +31,15 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
+                    android:paddingHorizontal="@dimen/spacing_lg">
 
                     <ImageButton
                         android:id="@+id/btnMenu"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/icon_lg"
+                        android:layout_height="@dimen/icon_lg"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/open_drawer"
-                        android:padding="8dp"
+                        android:padding="@dimen/spacing_sm"
                         android:src="@drawable/ic_menu"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
                         android:fontFamily="sans-serif-black"
                         android:text="@string/logo_text"
                         android:textColor="@color/white"
-                        android:textSize="22sp"
+                        android:textSize="@dimen/text_2xl"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -73,16 +73,16 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="@dimen/spacing_xl">
 
                 <!-- Welcome Banner Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/welcomeCard"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/spacing_sm"
                     app:cardBackgroundColor="@color/primary"
-                    app:cardCornerRadius="24dp"
+                    app:cardCornerRadius="@dimen/radius_2xl"
                     app:cardElevation="6dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="24dp">
+                        android:padding="@dimen/spacing_2xl">
 
                         <TextView
                             android:id="@+id/tvWelcomeTitle"
@@ -101,7 +101,7 @@
                             android:lineSpacingMultiplier="1.1"
                             android:text="@string/welcome_text"
                             android:textColor="@color/white"
-                            android:textSize="26sp"
+                            android:textSize="@dimen/text_3xl"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -111,11 +111,11 @@
                             android:id="@+id/tvWelcomeSub"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/spacing_sm"
                             android:alpha="0.85"
-                            android:text="Discover the best products at unbeatable prices"
+                            android:text="@string/welcome_subtitle"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/text_md"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvWelcomeTitle" />
@@ -124,10 +124,10 @@
                             android:id="@+id/btnShopNow"
                             android:layout_width="wrap_content"
                             android:layout_height="44dp"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="@dimen/spacing_md"
                             android:backgroundTint="@color/white"
-                            android:paddingHorizontal="20dp"
-                            android:text="Shop Now"
+                            android:paddingHorizontal="@dimen/spacing_xl"
+                            android:text="@string/shop_now"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold"
@@ -143,8 +143,8 @@
                     android:id="@+id/searchCard"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
-                    android:layout_marginTop="20dp"
-                    app:cardCornerRadius="16dp"
+                    android:layout_marginTop="@dimen/spacing_xl"
+                    app:cardCornerRadius="@dimen/radius_lg"
                     app:cardElevation="2dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -154,13 +154,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_search"
-                        android:paddingHorizontal="16dp">
+                        android:paddingHorizontal="@dimen/spacing_lg">
 
                         <ImageView
                             android:id="@+id/icSearch"
                             android:layout_width="22dp"
                             android:layout_height="22dp"
-                            android:contentDescription="Search"
+                            android:contentDescription="@string/search_content_desc"
                             android:src="@drawable/ic_search"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -170,10 +170,10 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginStart="@dimen/spacing_md"
                             android:hint="@string/search_hint"
                             android:textColorHint="@color/text_hint"
-                            android:textSize="15sp"
+                            android:textSize="@dimen/text_md"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/icSearch"
@@ -186,7 +186,7 @@
                     android:id="@+id/featuredHeader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginTop="@dimen/spacing_2xl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/searchCard">
@@ -198,7 +198,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="@string/featured_products"
                         android:textColor="@color/text_primary"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/text_2xl"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -208,10 +208,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"
-                        android:padding="4dp"
+                        android:padding="@dimen/spacing_xs"
                         android:text="@string/see_all"
                         android:textColor="@color/primary"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_md"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@id/tvFeatured"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -222,9 +222,9 @@
                     android:id="@+id/rvFeatured"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="@dimen/spacing_md"
                     android:clipToPadding="false"
-                    android:paddingEnd="8dp"
+                    android:paddingEnd="@dimen/spacing_sm"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/featuredHeader"
@@ -236,7 +236,7 @@
                     android:id="@+id/newArrivalsHeader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginTop="@dimen/spacing_2xl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/rvFeatured">
@@ -248,7 +248,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="@string/new_arrivals"
                         android:textColor="@color/text_primary"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/text_2xl"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -258,10 +258,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"
-                        android:padding="4dp"
+                        android:padding="@dimen/spacing_xs"
                         android:text="@string/see_all"
                         android:textColor="@color/primary"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_md"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@id/tvNewArrivals"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -272,10 +272,10 @@
                     android:id="@+id/rvNewArrivals"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="@dimen/spacing_md"
                     android:layout_marginBottom="100dp"
                     android:clipToPadding="false"
-                    android:paddingEnd="8dp"
+                    android:paddingEnd="@dimen/spacing_sm"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

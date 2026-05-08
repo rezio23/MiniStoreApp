@@ -4,16 +4,18 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Primary Brand Colors -->
-    <color name="primary">#000000</color>
+    <color name="primary">#1B1B1B</color>
     <color name="primary_dark">#000000</color>
     <color name="primary_light">#333333</color>
-    <color name="accent">#000000</color>
-    <color name="accent_light">#555555</color>
+    <color name="accent">#2E7D32</color>
+    <color name="accent_light">#4CAF50</color>
 
     <!-- Background Colors -->
-    <color name="background">#EFFCE0</color>
+    <color name="background">#F0FDF4</color>
     <color name="surface">#FFFFFF</color>
     <color name="card_background">#FFFFFF</color>
+    <color name="quantity_background">#F5F5F5</color>
+    <color name="success_light">#E8F5E9</color>
 
     <!-- Text Colors -->
     <color name="text_primary">#000000</color>

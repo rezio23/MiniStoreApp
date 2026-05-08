@@ -6,32 +6,32 @@
     android:background="@drawable/header_gradient"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="@dimen/spacing_2xl">
 
     <ImageView
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:contentDescription="App Logo"
+        android:contentDescription="@string/logo_text"
         android:src="@drawable/ic_store"
         app:tint="@color/white" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/spacing_md"
         android:fontFamily="sans-serif-black"
         android:text="@string/logo_text"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="@dimen/text_2xl"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/spacing_xs"
         android:alpha="0.8"
-        android:text="Your one-stop shopping destination"
+        android:text="@string/nav_header_tagline"
         android:textColor="@color/white"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_sm" />
 
 </LinearLayout>

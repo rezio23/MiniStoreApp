@@ -2,21 +2,23 @@ package com.example.ecommerce_store
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
-class CartActivity : AppCompatActivity() {
+class CartActivity : BaseActivity() {
 
     private lateinit var rvCart: RecyclerView
     private lateinit var tvTotalPrice: TextView
     private lateinit var btnCheckout: MaterialButton
-    private lateinit var tvEmptyCart: TextView
+    private lateinit var tvEmptyCart: LinearLayout
     private lateinit var cartAdapter: CartAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +36,16 @@ class CartActivity : AppCompatActivity() {
 
         setupRecyclerView()
         refreshCart()
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        setupBottomNavigation(bottomNav, R.id.nav_cart)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshCart()
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        updateCartBadge(bottomNav)
     }
 
     private fun setupRecyclerView() {
@@ -50,6 +62,7 @@ class CartActivity : AppCompatActivity() {
             }
         )
         rvCart.adapter = cartAdapter
+        rvCart.layoutAnimation = AnimationUtils.loadLayoutAnimation(this, R.anim.layout_fall_down)
     }
 
     private fun refreshCart() {

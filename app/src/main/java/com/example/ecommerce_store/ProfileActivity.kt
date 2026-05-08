@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,5 +32,14 @@ class ProfileActivity : AppCompatActivity() {
         btnWishlist.setOnClickListener {
             startActivity(Intent(this, WishlistActivity::class.java))
         }
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        setupBottomNavigation(bottomNav, R.id.nav_profile)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        updateCartBadge(bottomNav)
     }
 }

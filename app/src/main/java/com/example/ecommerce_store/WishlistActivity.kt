@@ -1,17 +1,20 @@
 package com.example.ecommerce_store
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class WishlistActivity : AppCompatActivity() {
+class WishlistActivity : BaseActivity() {
 
     private lateinit var rvWishlist: RecyclerView
-    private lateinit var tvEmptyWishlist: TextView
+    private lateinit var tvEmptyWishlist: LinearLayout
     private lateinit var wishlistAdapter: WishlistAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,16 @@ class WishlistActivity : AppCompatActivity() {
 
         setupRecyclerView()
         refreshWishlist()
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        setupBottomNavigation(bottomNav, R.id.nav_profile)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshWishlist()
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        updateCartBadge(bottomNav)
     }
 
     private fun setupRecyclerView() {
@@ -44,6 +57,7 @@ class WishlistActivity : AppCompatActivity() {
             }
         )
         rvWishlist.adapter = wishlistAdapter
+        rvWishlist.layoutAnimation = AnimationUtils.loadLayoutAnimation(this, R.anim.layout_fall_down)
     }
 
     private fun refreshWishlist() {

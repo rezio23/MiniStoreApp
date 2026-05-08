@@ -1,5 +1,6 @@
 package com.example.ecommerce_store
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,6 +49,20 @@ class StoreProductAdapter(private var products: List<StoreProduct>) :
                 "${product.name} added to cart",
                 android.widget.Toast.LENGTH_SHORT
             ).show()
+        }
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, ProductDetailActivity::class.java).apply {
+                putExtra("product_id", product.id)
+                putExtra("product_name", product.name)
+                putExtra("product_price", product.price)
+                putExtra("product_old_price", product.oldPrice ?: -1.0)
+                putExtra("product_image", product.imageRes)
+                putExtra("product_category", product.category)
+                putExtra("product_description", product.description)
+            }
+            context.startActivity(intent)
         }
 
         holder.itemView.setOnLongClickListener {

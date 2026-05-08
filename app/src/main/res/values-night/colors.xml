@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary Brand Colors -->
+    <color name="primary">#FFFFFF</color>
+    <color name="primary_dark">#000000</color>
+    <color name="primary_light">#CCCCCC</color>
+    <color name="accent">#4CAF50</color>
+    <color name="accent_light">#66BB6A</color>
+
+    <!-- Background Colors -->
+    <color name="background">#0F1F0F</color>
+    <color name="surface">#1A2E1A</color>
+    <color name="card_background">#223322</color>
+    <color name="quantity_background">#2A3A2A</color>
+    <color name="success_light">#1B331B</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#F0F0F0</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_hint">#888888</color>
+    <color name="text_on_primary">#000000</color>
+    <color name="text_on_accent">#FFFFFF</color>
+
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="error">#EF5350</color>
+    <color name="warning">#FDD835</color>
+
+    <!-- Navigation Colors -->
+    <color name="nav_selected">#FFFFFF</color>
+    <color name="nav_unselected">#888888</color>
+    <color name="divider">#334433</color>
+
+    <!-- Header Gradient Colors -->
+    <color name="header_start">#000000</color>
+    <color name="header_end">#1A1A1A</color>
+</resources>

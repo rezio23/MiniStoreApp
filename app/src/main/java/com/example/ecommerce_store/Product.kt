@@ -5,5 +5,6 @@ data class Product(
     val name: String,
     val price: Double,
     val oldPrice: Double? = null,
-    val imageRes: Int = R.drawable.ic_store
+    val imageRes: Int = R.drawable.ic_store,
+    val description: String = ""
 )

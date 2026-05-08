@@ -28,6 +28,11 @@
         <!-- Typography -->
         <item name="android:textColorPrimary">@color/text_primary</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- Activity Transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_right</item>
+        <item name="android:windowExitTransition">@android:transition/slide_left</item>
     </style>
 
     <style name="Theme.EcommerceStore" parent="Base.Theme.EcommerceStore" />
@@ -40,18 +45,52 @@
 
     <!-- Bottom Navigation Style -->
     <style name="BottomNavigationStyle" parent="Widget.Material3.BottomNavigationView">
-        <item name="itemIconTint">@color/nav_selected</item>
-        <item name="itemTextColor">@color/nav_selected</item>
+        <item name="itemIconTint">@color/bottom_nav_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_selector</item>
         <item name="android:background">@color/surface</item>
         <item name="itemActiveIndicatorStyle">@style/BottomNavIndicator</item>
     </style>
 
     <style name="BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">#D0E8C0</item>
+        <item name="android:color">@color/divider</item>
     </style>
 
     <style name="CircularImage" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Typography Styles -->
+    <style name="TextHeading1" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHeading2" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextBody" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextCaption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/text_hint</item>
+    </style>
+
+    <style name="TextPrice" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextPriceLarge" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextButton" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/text_on_accent</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

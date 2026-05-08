@@ -6,10 +6,10 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
-class ProductDetailActivity : AppCompatActivity() {
+class ProductDetailActivity : BaseActivity() {
 
     private var quantity = 1
     private var productPrice = 0.0
@@ -28,9 +28,10 @@ class ProductDetailActivity : AppCompatActivity() {
         val oldPrice = intent.getDoubleExtra("product_old_price", -1.0)
         productImageRes = intent.getIntExtra("product_image", R.drawable.ic_store)
         productCategory = intent.getStringExtra("product_category") ?: ""
+        val productDescription = intent.getStringExtra("product_description") ?: ""
 
         val btnBack = findViewById<ImageButton>(R.id.btnBack)
-        val btnShare = findViewById<ImageButton>(R.id.btnShare)
+        val btnWishlist = findViewById<ImageButton>(R.id.btnWishlist)
         val imgProduct = findViewById<ImageView>(R.id.imgProduct)
         val tvCategory = findViewById<TextView>(R.id.tvCategory)
         val tvProductName = findViewById<TextView>(R.id.tvProductName)
@@ -40,12 +41,14 @@ class ProductDetailActivity : AppCompatActivity() {
         val btnMinus = findViewById<ImageButton>(R.id.btnMinus)
         val btnPlus = findViewById<ImageButton>(R.id.btnPlus)
         val tvQuantity = findViewById<TextView>(R.id.tvQuantity)
+        val tvDescription = findViewById<TextView>(R.id.tvDescription)
         val btnAddToCart = findViewById<MaterialButton>(R.id.btnAddToCart)
 
         imgProduct.setImageResource(productImageRes)
         tvProductName.text = productName
         tvProductPrice.text = "$${String.format("%.2f", productPrice)}"
         tvCategory.text = productCategory.ifEmpty { "Product" }
+        tvDescription.text = productDescription.ifEmpty { getString(R.string.description_placeholder) }
 
         if (oldPrice > 0) {
             tvOldPrice.visibility = TextView.VISIBLE
@@ -56,9 +59,9 @@ class ProductDetailActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener { finish() }
 
-        btnShare.setOnClickListener {
+        btnWishlist.setOnClickListener {
             CartManager.getInstance(this).toggleWishlist(
-                Product(productId, productName, productPrice, if (oldPrice > 0) oldPrice else null, productImageRes)
+                Product(productId, productName, productPrice, if (oldPrice > 0) oldPrice else null, productImageRes, productDescription)
             )
             Toast.makeText(this, "$productName added to wishlist", Toast.LENGTH_SHORT).show()
         }
@@ -83,12 +86,21 @@ class ProductDetailActivity : AppCompatActivity() {
         btnAddToCart.setOnClickListener {
             repeat(quantity) {
                 CartManager.getInstance(this).addToCart(
-                    Product(productId, productName, productPrice, if (oldPrice > 0) oldPrice else null, productImageRes)
+                    Product(productId, productName, productPrice, if (oldPrice > 0) oldPrice else null, productImageRes, productDescription)
                 )
             }
             Toast.makeText(this, "$quantity x $productName added to cart", Toast.LENGTH_SHORT).show()
         }
 
         updateTotal()
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        setupBottomNavigation(bottomNav, R.id.nav_stores)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        updateCartBadge(bottomNav)
     }
 }

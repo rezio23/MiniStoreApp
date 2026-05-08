@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : BaseActivity() {
 
     private lateinit var switchNotifications: SwitchCompat
     private lateinit var switchDarkMode: SwitchCompat
@@ -21,11 +21,11 @@ class SettingsActivity : AppCompatActivity() {
         switchNotifications = findViewById(R.id.switchNotifications)
         switchDarkMode = findViewById(R.id.switchDarkMode)
 
-        btnBack.setOnClickListener { finish() }
-
         val prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
         switchNotifications.isChecked = prefs.getBoolean("notifications", true)
         switchDarkMode.isChecked = prefs.getBoolean("dark_mode", false)
+
+        btnBack.setOnClickListener { finish() }
 
         switchNotifications.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("notifications", isChecked).apply()
@@ -34,7 +34,10 @@ class SettingsActivity : AppCompatActivity() {
 
         switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("dark_mode", isChecked).apply()
-            Toast.makeText(this, "Dark mode ${if (isChecked) "enabled" else "disabled"}", Toast.LENGTH_SHORT).show()
+            AppCompatDelegate.setDefaultNightMode(
+                if (isChecked) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+            )
+            recreate()
         }
 
         findViewById<android.widget.LinearLayout>(R.id.rowAbout).setOnClickListener {
@@ -64,5 +67,8 @@ class SettingsActivity : AppCompatActivity() {
                 .setNegativeButton("Cancel", null)
                 .show()
         }
+
+        val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)
+        setupBottomNavigation(bottomNav, R.id.nav_profile)
     }
 }
