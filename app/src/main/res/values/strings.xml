@@ -56,6 +56,10 @@
     <string name="profile_fullname">John Doe</string>
     <string name="profile_email">john.doe@example.com</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="cancel">Cancel</string>
+    <string name="email_label">Email</string>
     <string name="my_cart">My Cart</string>
     <string name="my_orders">My Orders</string>
     <string name="my_wishlist">My Wishlist</string>
@@ -75,6 +79,24 @@
 
     <!-- Cart -->
     <string name="checkout">Checkout</string>
+    <string name="checkout_title">Checkout</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="shipping_info">Shipping Information</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cash_on_delivery">Cash on Delivery</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="card_number">Card Number</string>
+    <string name="card_holder">Cardholder Name</string>
+    <string name="expiry_date">Expiry Date (MM/YY)</string>
+    <string name="cvv">CVV</string>
+    <string name="price_breakdown">Price Breakdown</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="shipping">Shipping</string>
+    <string name="tax">Tax (8%)</string>
+    <string name="place_order">Place Order</string>
     <string name="empty_cart">Your cart is empty</string>
     <string name="empty_cart_action">Browse Store</string>
     <string name="empty_wishlist">Your wishlist is empty</string>

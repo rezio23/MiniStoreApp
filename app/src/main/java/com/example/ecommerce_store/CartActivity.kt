@@ -6,8 +6,6 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -98,20 +96,6 @@ class CartActivity : BaseActivity() {
     }
 
     private fun checkout() {
-        AlertDialog.Builder(this)
-            .setTitle("Confirm Order")
-            .setMessage("Are you sure you want to place this order?")
-            .setPositiveButton("Place Order") { _, _ ->
-                val order = CartManager.getInstance(this).placeOrder()
-                if (order != null) {
-                    Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this, OrdersActivity::class.java))
-                    finish()
-                } else {
-                    Toast.makeText(this, "Cart is empty", Toast.LENGTH_SHORT).show()
-                }
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
+        startActivity(Intent(this, CheckoutActivity::class.java))
     }
 }

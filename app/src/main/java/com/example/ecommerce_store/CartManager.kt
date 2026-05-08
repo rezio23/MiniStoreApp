@@ -119,7 +119,12 @@ class CartManager private constructor(context: Context) {
     // ---- Orders ----
     fun getOrders(): List<Order> = _orders.toList()
 
-    fun placeOrder(): Order? {
+    fun placeOrder(
+        shippingName: String = "",
+        shippingPhone: String = "",
+        shippingAddress: String = "",
+        paymentMethod: String = "Cash on Delivery"
+    ): Order? {
         if (_cart.isEmpty()) return null
         val order = Order(
             orderId = "ORD-${System.currentTimeMillis()}",
@@ -127,7 +132,11 @@ class CartManager private constructor(context: Context) {
             total = getCartTotal(),
             date = java.text.SimpleDateFormat("dd MMM yyyy, HH:mm", java.util.Locale.getDefault())
                 .format(java.util.Date()),
-            itemCount = getCartCount()
+            itemCount = getCartCount(),
+            shippingName = shippingName,
+            shippingPhone = shippingPhone,
+            shippingAddress = shippingAddress,
+            paymentMethod = paymentMethod
         )
         _orders.add(0, order)
         saveOrders()

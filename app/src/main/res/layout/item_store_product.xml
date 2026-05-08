@@ -86,17 +86,7 @@
                     android:textSize="@dimen/text_sm" />
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/btnAddToCart"
-                android:layout_width="@dimen/icon_lg"
-                android:layout_height="@dimen/icon_lg"
-                android:background="@drawable/circle_background"
-                android:contentDescription="@string/add_to_cart_desc"
-                android:padding="@dimen/spacing_sm"
-                android:src="@drawable/ic_cart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tint="@color/white" />
+            <!-- Tap card to view product detail, add to cart from detail page -->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

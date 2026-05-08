@@ -4,7 +4,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +16,6 @@ class ProductAdapter(private val products: List<Product>) :
         val tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
         val tvProductPrice: TextView = itemView.findViewById(R.id.tvProductPrice)
         val tvOldPrice: TextView = itemView.findViewById(R.id.tvOldPrice)
-        val btnAddToCart: ImageButton = itemView.findViewById(R.id.btnAddToCart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -39,14 +37,6 @@ class ProductAdapter(private val products: List<Product>) :
         }
 
         holder.imgProduct.setImageResource(product.imageRes)
-        holder.btnAddToCart.setOnClickListener {
-            CartManager.getInstance(holder.itemView.context).addToCart(product)
-            android.widget.Toast.makeText(
-                holder.itemView.context,
-                "${product.name} added to cart",
-                android.widget.Toast.LENGTH_SHORT
-            ).show()
-        }
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
