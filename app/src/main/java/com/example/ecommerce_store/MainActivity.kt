@@ -141,21 +141,21 @@ class MainActivity : BaseActivity() {
 
     private fun getFeaturedProducts(): List<Product> {
         return listOf(
-            Product(1, "Prada Leather Bag", 299.99, 399.99, R.drawable.product_prada, "A luxurious leather bag from Prada, featuring premium craftsmanship and timeless design. Perfect for both casual and formal occasions."),
-            Product(2, "Smart Gadget Set", 49.99, 79.99, R.drawable.product_gadget, "A versatile set of smart gadgets designed to make your life easier. Includes essential tech accessories for everyday use."),
-            Product(3, "Designer Handbag", 89.99, 129.99, R.drawable.product_bag, "Elegant designer handbag with spacious compartments and sophisticated style. Made from high-quality materials for durability."),
-            Product(4, "Luxury Perfume", 79.99, 99.99, R.drawable.product_perfume, "An exquisite luxury perfume with a captivating fragrance that lasts all day. A perfect addition to your collection."),
-            Product(5, "Sports Jacket", 59.99, 89.99, R.drawable.product_jacket, "A stylish and comfortable sports jacket designed for active lifestyles. Features breathable fabric and modern fit.")
+            Product(1, "Prada Leather Bag", 299.99, 399.99, R.drawable.product_women_handbag, "A luxurious leather bag from Prada, featuring premium craftsmanship and timeless design. Perfect for both casual and formal occasions."),
+            Product(2, "Smart Gadget Set", 49.99, 79.99, R.drawable.product_smartwatch, "A versatile set of smart gadgets designed to make your life easier. Includes essential tech accessories for everyday use."),
+            Product(3, "Designer Handbag", 89.99, 129.99, R.drawable.product_women_handbag, "Elegant designer handbag with spacious compartments and sophisticated style. Made from high-quality materials for durability."),
+            Product(4, "Luxury Perfume", 79.99, 99.99, R.drawable.product_dior_sauvage, "An exquisite luxury perfume with a captivating fragrance that lasts all day. A perfect addition to your collection."),
+            Product(5, "Sports Jacket", 59.99, 89.99, R.drawable.product_men_jacket, "A stylish and comfortable sports jacket designed for active lifestyles. Features breathable fabric and modern fit.")
         )
     }
 
     private fun getNewArrivals(): List<Product> {
         return listOf(
-            Product(6, "Prada Leather Bag", 299.99, 399.99, R.drawable.product_prada, "A luxurious leather bag from Prada, featuring premium craftsmanship and timeless design. Perfect for both casual and formal occasions."),
-            Product(7, "Designer Handbag", 89.99, 129.99, R.drawable.product_bag, "Elegant designer handbag with spacious compartments and sophisticated style. Made from high-quality materials for durability."),
-            Product(8, "Luxury Perfume", 79.99, 99.99, R.drawable.product_perfume, "An exquisite luxury perfume with a captivating fragrance that lasts all day. A perfect addition to your collection."),
-            Product(9, "Sports Jacket", 59.99, 89.99, R.drawable.product_jacket, "A stylish and comfortable sports jacket designed for active lifestyles. Features breathable fabric and modern fit."),
-            Product(10, "Smart Gadget Set", 49.99, 79.99, R.drawable.product_gadget, "A versatile set of smart gadgets designed to make your life easier. Includes essential tech accessories for everyday use.")
+            Product(6, "Prada Leather Bag", 299.99, 399.99, R.drawable.product_women_handbag, "A luxurious leather bag from Prada, featuring premium craftsmanship and timeless design. Perfect for both casual and formal occasions."),
+            Product(7, "Designer Handbag", 89.99, 129.99, R.drawable.product_women_handbag, "Elegant designer handbag with spacious compartments and sophisticated style. Made from high-quality materials for durability."),
+            Product(8, "Luxury Perfume", 79.99, 99.99, R.drawable.product_chanel_n5, "An exquisite luxury perfume with a captivating fragrance that lasts all day. A perfect addition to your collection."),
+            Product(9, "Sports Jacket", 59.99, 89.99, R.drawable.product_kids_hoodie, "A stylish and comfortable sports jacket designed for active lifestyles. Features breathable fabric and modern fit."),
+            Product(10, "Smart Gadget Set", 49.99, 79.99, R.drawable.product_headphones, "A versatile set of smart gadgets designed to make your life easier. Includes essential tech accessories for everyday use.")
         )
     }
 
